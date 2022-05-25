@@ -1,6 +1,6 @@
 local plr = game.Players.LocalPlayer
 local mouse = plr:GetMouse()
-local coregui = plr:WaitForChild("PlayerGui")
+local coregui = game.CoreGui or plr:WaitForChild("PlayerGui")
 
 if coregui:FindFirstChild("LinkStart") then
 	coregui:FindFirstChild("LinkStart"):Destroy()
