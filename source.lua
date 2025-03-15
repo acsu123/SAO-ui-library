@@ -9,6 +9,21 @@ if coregui:FindFirstChild("SAO_GUI") then
 	coregui:FindFirstChild("SAO_GUI"):Destroy()
 end
 
+local ContentProvider = game:GetService("ContentProvider")
+local success, err = pcall(function()
+    ContentProvider:PreloadAsync({
+		"rbxassetid://1022962506",
+		"rbxassetid://1022953222",
+		"rbxassetid://1370292592",
+		"rbxassetid://234370699",
+		"rbxassetid://234370725",
+		"rbxassetid://234369782",
+		"rbxassetid://296748591",
+		"http://www.roblox.com/asset/?id=231862344",
+		"http://www.roblox.com/asset/?id=231182937"
+	})
+end)
+
 local PresetColor = Color3.fromRGB(66, 134, 255)
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
@@ -231,7 +246,7 @@ function SAO:Intro()
 	username.TextWrapped = true
 	username.TextXAlignment = Enum.TextXAlignment.Left
 
-	wait(0.7)
+	wait(0.5)
 	AnimateText(username, "administrator")
 	wait(0.3)
 	AnimateText(password, "********")
@@ -628,7 +643,7 @@ function SAO:Window(info)
 		inside.BorderColor3 = Color3.fromRGB(27, 42, 53)
 		inside.BorderSizePixel = 0
 		inside.Position = UDim2.new(0.0470541641, 0, 0.0687234625, 0)
-		inside.Size = UDim2.new(0, 182, 0, 175)
+		inside.Size = UDim2.new(0.9, 0, 0.9, 0)
 		inside.ScrollBarThickness = 8
 
 		SelectList.Name = "SelectList"
@@ -756,7 +771,7 @@ function SAO:Window(info)
 			SecFrameScr.BorderColor3 = Color3.fromRGB(27, 42, 53)
 			SecFrameScr.BorderSizePixel = 0
 			SecFrameScr.Position = UDim2.new(0.0418259241, 0, 0.048546169, 0)
-			SecFrameScr.Size = UDim2.new(0, 183, 0, 262)
+			SecFrameScr.Size = UDim2.new(0.9, 0, 0.9, 0)
 			SecFrameScr.ScrollBarThickness = 8
 
 			sectlist.Name = "sectlist"
@@ -774,7 +789,7 @@ function SAO:Window(info)
 			forSelect.Parent = inside
 			forSelect.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			forSelect.BackgroundTransparency = 0.500
-			forSelect.Size = UDim2.new(0, 171, 0, 28)
+			forSelect.Size = UDim2.new(1, -29, 0, 28) -- Change from UDim2.new(0, 171, 0, 28)
 			forSelect.Font = Enum.Font.Code
 			forSelect.Text = text_sec or "Section"
 			forSelect.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -819,7 +834,7 @@ function SAO:Window(info)
 				forSelect.Parent = SecFrameScr
 				forSelect.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				forSelect.BackgroundTransparency = 0.500
-				forSelect.Size = UDim2.new(0, 171, 0, 28)
+				forSelect.Size = UDim2.new(1, 0, 0, 28)
 				forSelect.Font = Enum.Font.Code
 				forSelect.Text = btText
 				forSelect.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -827,11 +842,11 @@ function SAO:Window(info)
 				forSelect.MouseButton1Click:Connect(function()
 					pcall(back)
 					TweenService:Create(forSelect,TweenInfo.new(0.2),{
-						Size = UDim2.new(0, 155, 0, 20)
+						Size = UDim2.new(1, -45, 0, 20) -- Scale khi click
 					}):Play()
 					wait(0.2)
 					TweenService:Create(forSelect,TweenInfo.new(0.2),{
-						Size = UDim2.new(0, 171, 0, 28)
+						Size = UDim2.new(1, 0, 0, 28) -- Trở về scale ban đầu
 					}):Play()
 				end)
 				forSelect.MouseEnter:Connect(function()
@@ -852,7 +867,7 @@ function SAO:Window(info)
 				line.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				line.BackgroundTransparency = 0.500
 				line.Position = UDim2.new(0, 0, 0.1, 0)
-				line.Size = UDim2.new(0, 171, 0, 5)
+				line.Size = UDim2.new(1, 0, 0, 5) -- Thay đổi từ UDim2.new(0, 171, 0, 5)
 				Instance.new("UICorner", line)
 				line.MouseEnter:Connect(function()
 					TweenService:Create(line,TweenInfo.new(0.3),{
@@ -876,7 +891,7 @@ function SAO:Window(info)
 				Toggling.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				Toggling.BackgroundTransparency = 0.500
 				Toggling.Position = UDim2.new(0, 0, 0.137404576, 0)
-				Toggling.Size = UDim2.new(0, 171, 0, 39)
+				Toggling.Size = UDim2.new(1, 0, 0, 39) -- Change from UDim2.new(0, 171, 0, 39)
 
 				TogText.Name = TexT
 				TogText.Parent = Toggling
@@ -895,7 +910,7 @@ function SAO:Window(info)
 				TogBt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				TogBt.BackgroundTransparency = 1.000
 				TogBt.Position = UDim2.new(0.795321643, 0, 0.128205135, 0)
-				TogBt.Size = UDim2.new(0.163742691, 0, 0.717948735, 0)
+				TogBt.Size = UDim2.new(0.13, 0, 0.717948735, 0)
 				TogBt.Image = "rbxassetid://234370699"
 				Instance.new("UICorner",Toggling)
 				
@@ -929,11 +944,11 @@ function SAO:Window(info)
 						TogBt.Image = "rbxassetid://234370725"
 					end
 					TweenService:Create(TogBt,TweenInfo.new(0.2),{
-						Size = UDim2.new(0.146, 0,0.642, 0)
+						Size = UDim2.new(0.1, 0,0.642, 0)
 					}):Play()
 					wait(0.2)
 					TweenService:Create(TogBt,TweenInfo.new(0.2),{
-						Size = UDim2.new(0.164, 0,0.718, 0)
+						Size = UDim2.new(0.13, 0,0.718, 0)
 					}):Play()
 				end)
 			end
@@ -945,7 +960,7 @@ function SAO:Window(info)
 				LabelThingnot.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				LabelThingnot.BackgroundTransparency = 1.000
 				LabelThingnot.Position = UDim2.new(0, 0, 0.309160292, 0)
-				LabelThingnot.Size = UDim2.new(0, 171, 0, 28)
+				LabelThingnot.Size = UDim2.new(1, 0, 0, 28) -- Change from UDim2.new(0, 171, 0, 28)
 				LabelThingnot.Font = Enum.Font.Code
 				LabelThingnot.Text = str
 				LabelThingnot.TextColor3 = maincolor
@@ -965,6 +980,8 @@ function SAO:Window(info)
 				local minvalue = min or 1
 				local mid = mid or 3
 
+				maxvalue = maxvalue + 1
+
 				local SliderTemp = Instance.new("Frame")
 				local Slidenum = Instance.new("TextButton")
 				local Slide1 = Instance.new("Frame")
@@ -980,7 +997,7 @@ function SAO:Window(info)
 				SliderTemp.BackgroundTransparency = 1.000
 				SliderTemp.BorderSizePixel = 0
 				SliderTemp.Position = UDim2.new(0, 0, 0.265151501, 0)
-				SliderTemp.Size = UDim2.new(0, 171, 0, 32)
+				SliderTemp.Size = UDim2.new(1.1, 0, 0, 32) -- Change from UDim2.new(0, 171, 0, 32)
 
 				Slidenum.Name = "Slidenum"
 				Slidenum.Parent = SliderTemp
@@ -1001,7 +1018,7 @@ function SAO:Window(info)
 				Slide1.Parent = SliderTemp
 				Slide1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				Slide1.Position = UDim2.new(0.033, 0, 0.5, 0)
-				Slide1.Size = UDim2.new(0.76, 0, 0.25, 0)
+				Slide1.Size = UDim2.new(0.76, 0, 0.25, 0) -- Already using scale
 				Slide1.ZIndex = 9
 
 				UICorner.CornerRadius = UDim.new(0, 5)
@@ -1021,8 +1038,8 @@ function SAO:Window(info)
 				Slide.Parent = Slide1
 				Slide.BackgroundColor3 = maincolor
 				Slide.Size = UDim2.new(0, 0, 0, 8)
-				local SliderCaculate = (130/100)*(mid/maxvalue*100)
-				Slide.Size = UDim2.new(0, SliderCaculate, 0, 8)
+				local SliderCaculate = (Slide1.AbsoluteSize.X/100)*(mid/maxvalue*100)
+				Slide.Size = UDim2.new(0, SliderCaculate, 1, 0) -- Set height to full parent height
 				Slide.ZIndex = 10
 
 				UICorner_2.CornerRadius = UDim.new(0, 5)
@@ -1050,8 +1067,8 @@ function SAO:Window(info)
 				local Val = Slidenum
 
 				HoldButton.MouseButton1Down:Connect(function()
-					Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 130) * SliderIn.AbsoluteSize.X) + tonumber(minvalue)) or 0
-					SliderIn.Size = UDim2.new(0, math.clamp(mouse.X - SliderIn.AbsolutePosition.X, 0, 130), 0, 8)
+					Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / Slide1.AbsoluteSize.X) * SliderIn.AbsoluteSize.X) + tonumber(minvalue)) or 0
+					SliderIn.Size = UDim2.new(0, math.clamp(mouse.X - SliderIn.AbsolutePosition.X, 0, Slide1.AbsoluteSize.X), 1, 0)
 					Val.Text = Value
 					local moveconnection, releaseconnection
 					pcall(function()
@@ -1059,8 +1076,8 @@ function SAO:Window(info)
 					end)
 					moveconnection = mouse.Move:Connect(function()
 						Val.Text = Value
-						Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 130) * SliderIn.AbsoluteSize.X) + tonumber(minvalue))
-						SliderIn.Size = UDim2.new(0, math.clamp(mouse.X - SliderIn.AbsolutePosition.X, 0, 130), 0, 8)
+						Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / Slide1.AbsoluteSize.X) * SliderIn.AbsoluteSize.X) + tonumber(minvalue)) or 0
+						SliderIn.Size = UDim2.new(0, math.clamp(mouse.X - SliderIn.AbsolutePosition.X, 0, Slide1.AbsoluteSize.X), 1, 0)
 						pcall(function()
 							func(Value)
 						end)
@@ -1068,8 +1085,8 @@ function SAO:Window(info)
 					releaseconnection = uis.InputEnded:Connect(function(Mouse)
 						Val.Text = Value
 						if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
-							Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 130) * SliderIn.AbsoluteSize.X) + tonumber(minvalue))
-							SliderIn.Size = UDim2.new(0, math.clamp(mouse.X - SliderIn.AbsolutePosition.X, 0, 130), 0, 8)
+							Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / Slide1.AbsoluteSize.X) * SliderIn.AbsoluteSize.X) + tonumber(minvalue)) or 0
+							SliderIn.Size = UDim2.new(0, math.clamp(mouse.X - SliderIn.AbsolutePosition.X, 0, Slide1.AbsoluteSize.X), 1, 0)
 							pcall(function()
 								func(Value)
 							end)
@@ -1099,7 +1116,7 @@ function SAO:Window(info)
 				forSelect.Parent = SecFrameScr
 				forSelect.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				forSelect.BackgroundTransparency = 0.500
-				forSelect.Size = UDim2.new(0, 171, 0, 28)
+				forSelect.Size = UDim2.new(1, 0, 0, 28) -- Change from UDim2.new(0, 171, 0, 28)
 				forSelect.Font = Enum.Font.Code
 				forSelect.Text = txt..": nil"
 				forSelect.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -1107,11 +1124,11 @@ function SAO:Window(info)
 				forSelect.MouseButton1Click:Connect(function()
 					spawn(function()
 						TweenService:Create(forSelect,TweenInfo.new(0.2),{
-							Size = UDim2.new(0, 155, 0, 20)
+							Size = UDim2.new(1, -45, 0, 20)
 						}):Play()
 						wait(0.2)
 						TweenService:Create(forSelect,TweenInfo.new(0.2),{
-							Size = UDim2.new(0, 171, 0, 28)
+							Size = UDim2.new(1, 0, 0, 28)
 						}):Play()
 					end)
 					if despawn == false then
@@ -1175,7 +1192,7 @@ function SAO:Window(info)
 				DropFrame.BorderColor3 = Color3.fromRGB(27, 42, 53)
 				DropFrame.BorderSizePixel = 0
 				DropFrame.Position = UDim2.new(0.0418259241, 0, 0.048546169, 0)
-				DropFrame.Size = UDim2.new(0, 183, 0, 262)
+				DropFrame.Size = UDim2.new(0.9, 0, 0.9, 0)
 				DropFrame.ScrollBarThickness = 8
 
 				DropListDown.Name = "DropListDown"
@@ -1194,7 +1211,7 @@ function SAO:Window(info)
 					SampleDropClick.Parent = DropFrame
 					SampleDropClick.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 					SampleDropClick.BackgroundTransparency = 0.500
-					SampleDropClick.Size = UDim2.new(0, 171, 0, 28)
+					SampleDropClick.Size = UDim2.new(1, 0, 0, 28)
 					SampleDropClick.Font = Enum.Font.Code
 					SampleDropClick.Text = v
 					SampleDropClick.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -1235,7 +1252,7 @@ function SAO:Window(info)
 						SampleDropClick.Parent = DropFrame
 						SampleDropClick.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 						SampleDropClick.BackgroundTransparency = 0.500
-						SampleDropClick.Size = UDim2.new(0, 171, 0, 28)
+						SampleDropClick.Size = UDim2.new(1, 0, 0, 28)
 						SampleDropClick.Font = Enum.Font.Code
 						SampleDropClick.Text = v
 						SampleDropClick.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -1277,7 +1294,7 @@ function SAO:Window(info)
 				TypeZone.BackgroundColor3 = Color3.fromRGB(0, 255, 127)
 				TypeZone.BackgroundTransparency = 1.000
 				TypeZone.BorderSizePixel = 0
-				TypeZone.Size = UDim2.new(0, 170, 0, 27)
+				TypeZone.Size = UDim2.new(1, -30, 0, 27) -- Change from UDim2.new(0, 170, 0, 27)
 
 				TextHere.Name = "TextHere"
 				TextHere.Parent = TypeZone
