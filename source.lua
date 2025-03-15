@@ -9,7 +9,6 @@ if coregui:FindFirstChild("SAO_GUI") then
 	coregui:FindFirstChild("SAO_GUI"):Destroy()
 end
 
---<<Skid from Flux Lib 7 lines :^)
 local PresetColor = Color3.fromRGB(66, 134, 255)
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
@@ -17,7 +16,6 @@ local RunService = game:GetService("RunService")
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 local CloseBind = Enum.KeyCode.RightControl
--->>
 
 local SAO = {}
 
@@ -59,7 +57,7 @@ function SAO:Intro()
 	World.CurrentCamera = cam
 	cam.CFrame = mid_part.CFrame
 
-	game:GetService("TweenService"):Create(World,TweenInfo.new(0.5),{
+	TweenService:Create(World,TweenInfo.new(0.5),{
 		BackgroundColor3 = Color3.new(1, 1, 1)
 	}):Play()
 
@@ -74,25 +72,16 @@ function SAO:Intro()
 		cl_part.CFrame = mid_part.CFrame * CFrame.new(math.random(-15,15),math.random(-15,15),-math.random(60,80))
 		cl_part.Size = Vector3.new(1, 1, math.random(9,20))
 		cl_part.Parent = World
-		game:GetService("TweenService"):Create(cl_part,TweenInfo.new(0.5),{
+		TweenService:Create(cl_part,TweenInfo.new(0.5),{
 			CFrame = cl_part.CFrame * CFrame.new(0,0,130)
 		}):Play()
 		game.Debris:AddItem(cl_part,1)
 	end
 	make_go()
 	for i = 1, 40 do
-		make_go()
-		make_go()
-		make_go()
-		make_go()
-		make_go()
-		make_go()
-		make_go()
-		make_go()
-		make_go()
-		make_go()
-		make_go()
-		make_go()
+		for i = 1, 12 do
+			make_go()
+		end
 		wait()
 	end
 
@@ -114,60 +103,60 @@ function SAO:Intro()
 
 	local ring1 = create_ring()
 	local ring2 = create_ring()
-	game:GetService("TweenService"):Create(ring1,TweenInfo.new(0.5),{
+	TweenService:Create(ring1,TweenInfo.new(0.5),{
 		Position = UDim2.new(-0.172, 0,-0.082, 0),
 		Size = UDim2.new(0.851, 0,1.454, 0)
 	}):Play()
-	game:GetService("TweenService"):Create(ring2,TweenInfo.new(0.5),{
+	TweenService:Create(ring2,TweenInfo.new(0.5),{
 		Position = UDim2.new(0.326, 0,-0.313, 0),
 		Size = UDim2.new(0.851, 0,1.454, 0)
 	}):Play()
 	delay(0.5,function()
 		wait(0.2)
-		game:GetService("TweenService"):Create(ring1,TweenInfo.new(0.5),{
+		TweenService:Create(ring1,TweenInfo.new(0.5),{
 			Position = UDim2.new(0.848, 0,0.009, 0),
 			Size = UDim2.new(0.145, 0,0.247, 0)
 		}):Play()
-		game:GetService("TweenService"):Create(ring2,TweenInfo.new(0.5),{
+		TweenService:Create(ring2,TweenInfo.new(0.5),{
 			Position = UDim2.new(0.848, 0,0.165, 0),
 			Size = UDim2.new(0.145, 0,0.247, 0)
 		}):Play()
 	end)
 	wait(0.4)
 	local ring3 = create_ring()
-	game:GetService("TweenService"):Create(ring3,TweenInfo.new(0.5),{
+	TweenService:Create(ring3,TweenInfo.new(0.5),{
 		Position = UDim2.new(-0.331, 0,0.253, 0),
 		Size = UDim2.new(0.851, 0,1.454, 0)
 	}):Play()
 	delay(0.5,function()
 		wait(0.2)
-		game:GetService("TweenService"):Create(ring3,TweenInfo.new(0.5),{
+		TweenService:Create(ring3,TweenInfo.new(0.5),{
 			Position = UDim2.new(0.848, 0,0.315, 0),
 			Size = UDim2.new(0.145, 0,0.247, 0)
 		}):Play()
 	end)
 	wait(0.4)
 	local ring4 = create_ring()
-	game:GetService("TweenService"):Create(ring4,TweenInfo.new(0.5),{
+	TweenService:Create(ring4,TweenInfo.new(0.5),{
 		Position = UDim2.new(0.018, 0,-0.325, 0),
 		Size = UDim2.new(0.851, 0,1.454, 0)
 	}):Play()
 	delay(0.5,function()
 		wait(0.2)
-		game:GetService("TweenService"):Create(ring4,TweenInfo.new(0.5),{
+		TweenService:Create(ring4,TweenInfo.new(0.5),{
 			Position = UDim2.new(0.848, 0,0.46, 0),
 			Size = UDim2.new(0.145, 0,0.247, 0)
 		}):Play()
 	end)
 	wait(0.4)
 	local ring5 = create_ring()
-	game:GetService("TweenService"):Create(ring5,TweenInfo.new(0.5),{
+	TweenService:Create(ring5,TweenInfo.new(0.5),{
 		Position = UDim2.new(0.404, 0,-0.013, 0),
 		Size = UDim2.new(0.851, 0,1.454, 0)
 	}):Play()
 	delay(0.5,function()
 		wait(0.2)
-		game:GetService("TweenService"):Create(ring5,TweenInfo.new(0.5),{
+		TweenService:Create(ring5,TweenInfo.new(0.5),{
 			Position = UDim2.new(0.848, 0,0.613, 0),
 			Size = UDim2.new(0.145, 0,0.247, 0)
 		}):Play()
@@ -180,20 +169,20 @@ function SAO:Intro()
 	ring4.ImageColor3 = Color3.new(0, 1, 0.498039)
 	ring5.ImageColor3 = Color3.new(0, 1, 0.498039)
 	wait(0.3)
-	game:GetService("TweenService"):Create(ring1,TweenInfo.new(0.5),{
+	TweenService:Create(ring1,TweenInfo.new(0.5),{
 		Position = UDim2.new(-0.5, 0,0.009, 0),
 	}):Play()
-	game:GetService("TweenService"):Create(ring3,TweenInfo.new(0.5),{
+	TweenService:Create(ring3,TweenInfo.new(0.5),{
 		Position = UDim2.new(-0.5, 0,0.315, 0),
 	}):Play()
-	game:GetService("TweenService"):Create(ring5,TweenInfo.new(0.5),{
+	TweenService:Create(ring5,TweenInfo.new(0.5),{
 		Position = UDim2.new(-0.5, 0,0.613, 0),
 	}):Play()
 
-	game:GetService("TweenService"):Create(ring2,TweenInfo.new(0.5),{
+	TweenService:Create(ring2,TweenInfo.new(0.5),{
 		Position = UDim2.new(1.4, 0,0.165, 0),
 	}):Play()
-	game:GetService("TweenService"):Create(ring4,TweenInfo.new(0.5),{
+	TweenService:Create(ring4,TweenInfo.new(0.5),{
 		Position = UDim2.new(1.4, 0,0.46, 0),
 	}):Play()
 
@@ -248,7 +237,7 @@ function SAO:Intro()
 	AnimateText(password, "********")
 	wait(0.3)
 
-	game:GetService("TweenService"):Create(LogInpage,TweenInfo.new(0.5),{
+	TweenService:Create(LogInpage,TweenInfo.new(0.5),{
 		Position = UDim2.new(2, 0,0.112, 0),
 	}):Play()
 
@@ -268,14 +257,14 @@ function SAO:Intro()
 	welcome.TextTransparency = 1.000
 	welcome.TextWrapped = true
 
-	game:GetService("TweenService"):Create(welcome,TweenInfo.new(0.5),{
+	TweenService:Create(welcome,TweenInfo.new(0.5),{
 		TextTransparency = 0
 	}):Play()
-	game:GetService("TweenService"):Create(World,TweenInfo.new(0.5),{
+	TweenService:Create(World,TweenInfo.new(0.5),{
 		BackgroundColor3 = Color3.fromRGB(173, 173, 173)
 	}):Play()
 	wait(1.5)
-	game:GetService("TweenService"):Create(welcome,TweenInfo.new(0.5),{
+	TweenService:Create(welcome,TweenInfo.new(0.5),{
 		TextTransparency = 0.5,
 		Size = UDim2.new(1.254, 0,0.829, 0)
 	}):Play()
@@ -290,57 +279,31 @@ function SAO:Intro()
 		cl_part.CFrame = mid_part.CFrame * CFrame.new(math.random(-15,15),math.random(-15,15),-math.random(60,80))
 		cl_part.Size = Vector3.new(1, 1, math.random(9,20))
 		cl_part.Parent = World
-		game:GetService("TweenService"):Create(cl_part,TweenInfo.new(0.5),{
+		TweenService:Create(cl_part,TweenInfo.new(0.5),{
 			CFrame = cl_part.CFrame * CFrame.new(0,0,130)
 		}):Play()
 		game.Debris:AddItem(cl_part,1)
 	end
-	game:GetService("TweenService"):Create(World,TweenInfo.new(1.5),{
+	TweenService:Create(World,TweenInfo.new(1.5),{
 		BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	}):Play()
 	for i = 1, 70 do
 		if i > 20 then
-			make_go2()
-			make_go2()
-			make_go2()
-			make_go2()
-			make_go2()
-			make_go2()
-			make_go2()
-			make_go2()
-			make_go2()
-			make_go2()
+			for i = 1, 10 do
+				make_go2()
+			end
 		elseif i > 30 then
-			make_go2()
-			make_go2()
-			make_go2()
-			make_go2()
-			make_go2()
-			make_go2()
-			make_go2()
-			make_go2()
-			make_go2()
-			make_go2()
-			make_go2()
-			make_go2()
-			make_go2()
-			make_go2()
-			make_go2()
-			make_go2()
-			make_go2()
-			make_go2()
-			make_go2()
-			make_go2()
+			for i = 1, 20 do
+				make_go2()
+			end
 		else
-			make_go2()
-			make_go2()
-			make_go2()
-			make_go2()
-			make_go2()
+			for i = 1, 5 do
+				make_go2()
+			end
 		end
 		wait()
 	end
-	game:GetService("TweenService"):Create(World,TweenInfo.new(1),{
+	TweenService:Create(World,TweenInfo.new(1),{
 		BackgroundTransparency = 1
 	}):Play()
 	game.Debris:AddItem(LinkStart, 1)
@@ -469,7 +432,7 @@ function SAO:Window(info)
 					spawn(function()
 						if v:FindFirstChild("pos") then
 							v.Visible = true
-							game:GetService("TweenService"):Create(v, TweenInfo.new(0.5), {
+							TweenService:Create(v, TweenInfo.new(0.5), {
 								Position = UDim2.new(0.056,0,v.pos.Value,0)
 							}):Play()
 						end
@@ -482,7 +445,7 @@ function SAO:Window(info)
 				for i,v in pairs(TabFrame:GetChildren()) do
 					spawn(function()
 						if v:FindFirstChild("pos") then
-							game:GetService("TweenService"):Create(v, TweenInfo.new(0.5), {
+							TweenService:Create(v, TweenInfo.new(0.5), {
 								Position = UDim2.new(0.056, 0, 0.025, 0)
 							}):Play()
 							delay(0.5, function()
@@ -545,14 +508,14 @@ function SAO:Window(info)
 		Yes.ZIndex = 2
 		Yes.Image = "rbxassetid://234370725"
 		
-		game:GetService("TweenService"):Create(Nof,TweenInfo.new(0.5),{
+		TweenService:Create(Nof,TweenInfo.new(0.5),{
 			Position = UDim2.new(0.732380986, 0, 0.718140543, 0)
 		}):Play()
 		wait(0.5)
 		
 		local function disNof()
 			pcall(function()
-				game:GetService("TweenService"):Create(Nof,TweenInfo.new(0.5),{
+				TweenService:Create(Nof,TweenInfo.new(0.5),{
 					Position = UDim2.new(2, 0, 0.718140543, 0)
 				}):Play()
 				game.Debris:AddItem(Nof, 0.5)
@@ -679,19 +642,19 @@ function SAO:Window(info)
 		end)
 		
 		TabButton.MouseEnter:Connect(function()
-			game:GetService("TweenService"):Create(TabButton,TweenInfo.new(0.3),{
+			TweenService:Create(TabButton,TweenInfo.new(0.3),{
 				ImageColor3 = maincolor
 			}):Play()
-			game:GetService("TweenService"):Create(Label,TweenInfo.new(0.3),{
+			TweenService:Create(Label,TweenInfo.new(0.3),{
 				TextColor3 = maincolor
 			}):Play()
 		end)
 		TabButton.MouseLeave:Connect(function()
 			if OptionsFRame.Visible == false then
-				game:GetService("TweenService"):Create(TabButton,TweenInfo.new(0.1),{
+				TweenService:Create(TabButton,TweenInfo.new(0.1),{
 					ImageColor3 = Color3.fromRGB(255, 255, 255)
 				}):Play()
-				game:GetService("TweenService"):Create(Label,TweenInfo.new(0.1),{
+				TweenService:Create(Label,TweenInfo.new(0.1),{
 					TextColor3 = Color3.fromRGB(255, 255, 255)
 				}):Play()
 			end
@@ -719,19 +682,19 @@ function SAO:Window(info)
 			if deploy == false then
 				deploy = true
 				TabButton.OptionsFRame.Visible = true
-				game:GetService("TweenService"):Create(TabButton,TweenInfo.new(0.3),{
+				TweenService:Create(TabButton,TweenInfo.new(0.3),{
 					ImageColor3 = maincolor
 				}):Play()
-				game:GetService("TweenService"):Create(Label,TweenInfo.new(0.3),{
+				TweenService:Create(Label,TweenInfo.new(0.3),{
 					TextColor3 = maincolor
 				}):Play()
 			else
 				deploy = false
 				TabButton.OptionsFRame.Visible = false
-				game:GetService("TweenService"):Create(TabButton,TweenInfo.new(0.1),{
+				TweenService:Create(TabButton,TweenInfo.new(0.1),{
 					ImageColor3 = Color3.fromRGB(255, 255, 255)
 				}):Play()
-				game:GetService("TweenService"):Create(Label,TweenInfo.new(0.1),{
+				TweenService:Create(Label,TweenInfo.new(0.1),{
 					TextColor3 = Color3.fromRGB(255, 255, 255)
 				}):Play()
 			end			
@@ -820,13 +783,13 @@ function SAO:Window(info)
 			UICorner.Parent = forSelect
 			
 			forSelect.MouseEnter:Connect(function()
-				game:GetService("TweenService"):Create(forSelect,TweenInfo.new(0.3),{
+				TweenService:Create(forSelect,TweenInfo.new(0.3),{
 					BackgroundColor3 = maincolor
 				}):Play()
 			end)
 			forSelect.MouseLeave:Connect(function()
 				if TabButton[forSelect.Name.."sec"].Visible == false then
-					game:GetService("TweenService"):Create(forSelect,TweenInfo.new(0.1),{
+					TweenService:Create(forSelect,TweenInfo.new(0.1),{
 						BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 					}):Play()
 				end
@@ -837,13 +800,13 @@ function SAO:Window(info)
 				if deploSec == false then
 					deploSec = true
 					TabButton[forSelect.Name.."sec"].Visible = true
-					game:GetService("TweenService"):Create(forSelect,TweenInfo.new(0.3),{
+					TweenService:Create(forSelect,TweenInfo.new(0.3),{
 						BackgroundColor3 = maincolor
 					}):Play()
 				else
 					deploSec = false
 					TabButton[forSelect.Name.."sec"].Visible = false
-					game:GetService("TweenService"):Create(forSelect,TweenInfo.new(0.1),{
+					TweenService:Create(forSelect,TweenInfo.new(0.1),{
 						BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 					}):Play()
 				end			
@@ -863,21 +826,21 @@ function SAO:Window(info)
 				forSelect.TextSize = 14.000
 				forSelect.MouseButton1Click:Connect(function()
 					pcall(back)
-					game:GetService("TweenService"):Create(forSelect,TweenInfo.new(0.2),{
+					TweenService:Create(forSelect,TweenInfo.new(0.2),{
 						Size = UDim2.new(0, 155, 0, 20)
 					}):Play()
 					wait(0.2)
-					game:GetService("TweenService"):Create(forSelect,TweenInfo.new(0.2),{
+					TweenService:Create(forSelect,TweenInfo.new(0.2),{
 						Size = UDim2.new(0, 171, 0, 28)
 					}):Play()
 				end)
 				forSelect.MouseEnter:Connect(function()
-					game:GetService("TweenService"):Create(forSelect,TweenInfo.new(0.3),{
+					TweenService:Create(forSelect,TweenInfo.new(0.3),{
 						BackgroundColor3 = maincolor
 					}):Play()
 				end)
 				forSelect.MouseLeave:Connect(function()
-					game:GetService("TweenService"):Create(forSelect,TweenInfo.new(0.1),{
+					TweenService:Create(forSelect,TweenInfo.new(0.1),{
 						BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 					}):Play()
 				end)
@@ -892,12 +855,12 @@ function SAO:Window(info)
 				line.Size = UDim2.new(0, 171, 0, 5)
 				Instance.new("UICorner", line)
 				line.MouseEnter:Connect(function()
-					game:GetService("TweenService"):Create(line,TweenInfo.new(0.3),{
+					TweenService:Create(line,TweenInfo.new(0.3),{
 						BackgroundColor3 = maincolor
 					}):Play()
 				end)
 				line.MouseLeave:Connect(function()
-					game:GetService("TweenService"):Create(line,TweenInfo.new(0.1),{
+					TweenService:Create(line,TweenInfo.new(0.1),{
 						BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 					}):Play()
 				end)
@@ -937,12 +900,12 @@ function SAO:Window(info)
 				Instance.new("UICorner",Toggling)
 				
 				Toggling.MouseEnter:Connect(function()
-					game:GetService("TweenService"):Create(Toggling,TweenInfo.new(0.3),{
+					TweenService:Create(Toggling,TweenInfo.new(0.3),{
 						BackgroundColor3 = maincolor
 					}):Play()
 				end)
 				Toggling.MouseLeave:Connect(function()
-					game:GetService("TweenService"):Create(Toggling,TweenInfo.new(0.1),{
+					TweenService:Create(Toggling,TweenInfo.new(0.1),{
 						BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 					}):Play()
 				end)
@@ -965,11 +928,11 @@ function SAO:Window(info)
 						end)
 						TogBt.Image = "rbxassetid://234370725"
 					end
-					game:GetService("TweenService"):Create(TogBt,TweenInfo.new(0.2),{
+					TweenService:Create(TogBt,TweenInfo.new(0.2),{
 						Size = UDim2.new(0.146, 0,0.642, 0)
 					}):Play()
 					wait(0.2)
-					game:GetService("TweenService"):Create(TogBt,TweenInfo.new(0.2),{
+					TweenService:Create(TogBt,TweenInfo.new(0.2),{
 						Size = UDim2.new(0.164, 0,0.718, 0)
 					}):Play()
 				end)
@@ -1143,23 +1106,23 @@ function SAO:Window(info)
 				forSelect.TextSize = 14.000
 				forSelect.MouseButton1Click:Connect(function()
 					spawn(function()
-						game:GetService("TweenService"):Create(forSelect,TweenInfo.new(0.2),{
+						TweenService:Create(forSelect,TweenInfo.new(0.2),{
 							Size = UDim2.new(0, 155, 0, 20)
 						}):Play()
 						wait(0.2)
-						game:GetService("TweenService"):Create(forSelect,TweenInfo.new(0.2),{
+						TweenService:Create(forSelect,TweenInfo.new(0.2),{
 							Size = UDim2.new(0, 171, 0, 28)
 						}):Play()
 					end)
 					if despawn == false then
 						despawn = true
-						game:GetService("TweenService"):Create(forSelect,TweenInfo.new(0.3),{
+						TweenService:Create(forSelect,TweenInfo.new(0.3),{
 							BackgroundColor3 = maincolor
 						}):Play()
 						DropFuncF.Visible = true
 					else
 						despawn = false
-						game:GetService("TweenService"):Create(forSelect,TweenInfo.new(0.1),{
+						TweenService:Create(forSelect,TweenInfo.new(0.1),{
 							BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 						}):Play()
 						DropFuncF.Visible = false
@@ -1244,18 +1207,18 @@ function SAO:Window(info)
 							func(v)
 						end)
 						despawn = false
-						game:GetService("TweenService"):Create(forSelect,TweenInfo.new(0.1),{
+						TweenService:Create(forSelect,TweenInfo.new(0.1),{
 							BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 						}):Play()
 						DropFuncF.Visible = false
 					end)
 					SampleDropClick.MouseEnter:Connect(function()
-						game:GetService("TweenService"):Create(SampleDropClick,TweenInfo.new(0.3),{
+						TweenService:Create(SampleDropClick,TweenInfo.new(0.3),{
 							BackgroundColor3 = maincolor
 						}):Play()
 					end)
 					SampleDropClick.MouseLeave:Connect(function()
-						game:GetService("TweenService"):Create(SampleDropClick,TweenInfo.new(0.1),{
+						TweenService:Create(SampleDropClick,TweenInfo.new(0.1),{
 							BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 						}):Play()
 					end)
@@ -1285,18 +1248,18 @@ function SAO:Window(info)
 								func(v)
 							end)
 							despawn = false
-							game:GetService("TweenService"):Create(forSelect,TweenInfo.new(0.1),{
+							TweenService:Create(forSelect,TweenInfo.new(0.1),{
 								BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 							}):Play()
 							DropFuncF.Visible = false
 						end)
 						SampleDropClick.MouseEnter:Connect(function()
-							game:GetService("TweenService"):Create(SampleDropClick,TweenInfo.new(0.3),{
+							TweenService:Create(SampleDropClick,TweenInfo.new(0.3),{
 								BackgroundColor3 = maincolor
 							}):Play()
 						end)
 						SampleDropClick.MouseLeave:Connect(function()
-							game:GetService("TweenService"):Create(SampleDropClick,TweenInfo.new(0.1),{
+							TweenService:Create(SampleDropClick,TweenInfo.new(0.1),{
 								BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 							}):Play()
 						end)
