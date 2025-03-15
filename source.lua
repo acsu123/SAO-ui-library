@@ -1317,8 +1317,8 @@ function SAO:Window(info)
 				Re.Parent = TypeZone
 				Re.BackgroundColor3 = Color3.fromRGB(193, 193, 193)
 				Re.BorderSizePixel = 0
-				Re.Position = UDim2.new(0.730593622, 0, 0.113073282, 0)
-				Re.Size = UDim2.new(0, 37, 0, 23)
+				Re.Position = UDim2.new(0.55, 0, 0.113073282, 0)
+				Re.Size = UDim2.new(0.565, 0, 0, 23)
 				Re.ZIndex = 11
 				Re.Font = Enum.Font.Code
 				Re.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
